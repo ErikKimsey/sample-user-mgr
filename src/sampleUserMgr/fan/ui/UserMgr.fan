@@ -8,6 +8,8 @@
 
 using dom
 using domkit
+using web
+using util
 
 @Js class UserMgr : Box
 {
@@ -31,9 +33,11 @@ using domkit
 
     // TODO: replace me with domkit::Table which is empty
     // to start. See onInit to load model data.
-    table := Box {
+    table := Table {
       it.style.addClass("domkit-border")
-      it.style->padding = "20px"
+      it.style.addClass("domkit-Table-header")
+      it.style->padding = "50px"
+      it.style->background = "#dd00ee"
       it.text = "TODO: user table here"
     }
 
@@ -50,10 +54,10 @@ using domkit
   ** Init callback to load data
   private Void onInit()
   {
-    // TODO:
-    //  - load user data using dom::HttpReq
-    //  - load data into domkit::Table
-    //  - don't forget to call `Table.rebuild` to update contents
+    HttpReq { uri=`http://localhost:8000/users.csv`}.get |res| {
+      echo(res.content)
+      // Str[][] csvResp := CsvInStream(res.content).readAllRows
+    }  
   }
 
   ** Callback to create a new record.

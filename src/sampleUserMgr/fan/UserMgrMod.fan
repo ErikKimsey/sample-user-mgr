@@ -13,11 +13,13 @@ const class UserMgrMod : WebMod
 {
   override Void onGet()
   {
-    name := req.modRel.path.first
+    name := req.uri.path.first
+    echo(name)
     switch (name)
     {
       case null:  onIndex
       case "pod": onPodResource
+      // case "data": onPodResource
       default:    res.sendErr(404)
     }
   }
@@ -55,6 +57,7 @@ const class UserMgrMod : WebMod
   private Void onPodResource()
   {
     File file := ("fan://" + req.uri[1..-1]).toUri.get
+    echo(file)
     if (!file.exists) { res.sendErr(404); return }
     FileWeblet(file).onService
   }
