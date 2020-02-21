@@ -11,15 +11,15 @@ using webmod
 
 const class UserMgrMod : WebMod
 {
+
   override Void onGet()
   {
     name := req.uri.path.first
-    echo(name)
     switch (name)
     {
       case null:  onIndex
       case "pod": onPodResource
-      // case "data": onPodResource
+      case "data": onDataResource
       default:    res.sendErr(404)
     }
   }
@@ -53,12 +53,17 @@ const class UserMgrMod : WebMod
     out.htmlEnd
   }
 
+  private Void onDataResource(){
+    File file := Env.cur.workDir + `data/users.csv`
+    if (!file.exists) { res.sendErr(404); return }
+    FileWeblet(file).onService
+  }
+
   ** Service a pod resource file.
   private Void onPodResource()
   {
-    File file := ("fan://" + req.uri[1..-1]).toUri.get
-    echo(file)
-    if (!file.exists) { res.sendErr(404); return }
-    FileWeblet(file).onService
+      File file := ("fan://" + req.uri[1..-1]).toUri.get
+      if (!file.exists) { res.sendErr(404); return }
+      FileWeblet(file).onService
   }
 }

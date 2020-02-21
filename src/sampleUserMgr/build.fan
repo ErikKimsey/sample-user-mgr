@@ -19,7 +19,7 @@ class Build : build::BuildPod
       "graphics 1.0",
       "dom 1.0",
       "domkit 1.0"]
-    srcDirs  = [`fan/`, `fan/ui/`]
+    srcDirs  = [`fan/`, `fan/ui/`,]
     resDirs  = [`res/`]
   }
 }

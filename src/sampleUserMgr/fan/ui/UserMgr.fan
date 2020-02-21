@@ -20,6 +20,7 @@ using util
     Win.cur.doc.body.add(mgr)
     mgr.onInit
   }
+    private Str? csvData
 
   ** Constructor.
   new make()
@@ -51,12 +52,13 @@ using util
     })
   }
 
+
   ** Init callback to load data
   private Void onInit()
   {
-    HttpReq { uri=`http://localhost:8000/users.csv`}.get |res| {
-      echo(res.content)
-      // Str[][] csvResp := CsvInStream(res.content).readAllRows
+    HttpReq { uri = `data/users.csv` }.get |res| {
+      csvData = res.content
+      echo(csvData)
     }  
   }
 
