@@ -65,11 +65,7 @@ using util
   private Void initTable(Str[][] data){
     echo(data[0].size)
     model := UserTable(data[0].size, data.size, data)
-    for(i:=0; i<data.size; i++){
-      for(j:=0;j<data[i].size; j++){
-        echo(data[i][j])
-      }
-    }
+    model.buildHeader
   }
 
   ** Callback to create a new record.

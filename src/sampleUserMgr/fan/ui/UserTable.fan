@@ -13,9 +13,9 @@ class UserTable {
   }
 
   // creating header
-  private Void buildHeader(Str[] data){
-    for(i:=0;i<data.size;i++){
-      echo(data[i])
+  private Void buildHeader(){
+    for(i:=0;i<this.nData.size;i++){
+      echo(this.nData[i])
     }
   }
 
