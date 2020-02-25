@@ -64,7 +64,7 @@ using util
 
   private Void initTable(Str[][] data){
     echo(data.size)
-    model := UserTable(data.size) {}
+    // model := UserTable(data.size, ) {}
     for(i:=0; i<data.size; i++){
       for(j:=0;j<data[i].size; j++){
         echo(data[i][j])

@@ -1,3 +1,17 @@
+# Erik Kimsey Takes A Shot At Fantom
+## 
+
+
+### In total, I've given Fantom and this project 10 hours.  From the outside, Fantom seemed more intuitive than I anticipated.  Which is frustrating when I assumed I would be able to knock out a sexy little CRUD app in a few hours, as I could with  JavaScript.  
+
+### Only now are some of the core tenets truly coming together for me.  
+
+### It's been interesting, however.  Learning is fun!  And, I'm still interested in the position.  
+
+
+### Best regards!
+
+
 # Sample User Manager
 
 This repo contains skeleton code for implementing a sample project that builds
