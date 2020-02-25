@@ -20,7 +20,6 @@ using util
     Win.cur.doc.body.add(mgr)
     mgr.onInit
   }
-    private Str? csvData
 
   ** Constructor.
   new make()
@@ -57,9 +56,20 @@ using util
   private Void onInit()
   {
     HttpReq { uri = `data/users.csv` }.get |res| {
-      csvData = res.content
-      echo(csvData)
+         inStrm := CsvInStream(res.content.in)
+         Str[][] readRows := inStrm.readAllRows()
+        this.initTable(readRows)
     }  
+  }
+
+  private Void initTable(Str[][] data){
+    echo(data.size)
+    model := UserTable(data.size) {}
+    for(i:=0; i<data.size; i++){
+      for(j:=0;j<data[i].size; j++){
+        echo(data[i][j])
+      }
+    }
   }
 
   ** Callback to create a new record.
