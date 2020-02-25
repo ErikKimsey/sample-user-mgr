@@ -5,7 +5,7 @@ using domkit
 //   override Int numCols(){}
 // }
 
-class UserTable {
+@Js class UserTable {
   new make(Int cols, Int rows, Str[][] data){
     Int nCols := cols
     Int nRows := rows
@@ -14,8 +14,8 @@ class UserTable {
 
   // creating header
   private Void buildHeader(){
-    for(i:=0;i<this.nData.size;i++){
-      echo(this.nData[i])
+    for(i:=0;i<this.nData[0].size;i++){
+      echo(this.nData[0][i])
     }
   }
 
